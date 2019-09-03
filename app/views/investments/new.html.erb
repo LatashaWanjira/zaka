@@ -1,0 +1,16 @@
+<%= content_for :title, "Invest" %>
+
+<div class="content">
+
+  <h3>Invest in
+    <%= @entrepreneur.business_name %></h3>
+  <%= render "layouts/errors", :object => @investment %>
+
+  <%= form_for [@entrepreneur, @investment] do |f| %>
+  <%= f.label :invested_amount %>
+  <%= f.number_field :invested_amount %>
+  <%= f.hidden_field :investor_id, :value => current_investor.id %>
+  <%= f.submit %>
+<% end %>
+
+</div>

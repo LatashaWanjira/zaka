@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zaka crowdfunding platform">
+    <meta name="keywords" content="business, responsive, multipurpose, onepage, corporate, clean">
+    <meta name="author" content="Designcarebd">
+
+    <!-- Site title -->
+    <title>Zaka -Investment platform</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="logo.png">
+
+    <!-- Bootstrap css -->
+    <link href="/styles/bootstrap.min.css" rel="stylesheet">
+
+    <!--Font Awesome css -->
+    <link href="/styles/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Normalizer css -->
+    <link href="/styles/normalize.css" rel="stylesheet">
+
+    <!-- Owl Carousel css -->
+    <link href="/styles/owl.carousel.min.css" rel="stylesheet">
+    <link href="/styles/owl.transitions.css" rel="stylesheet">
+
+    <!-- Magnific popup css -->
+    <link href="/styles/magnific-popup.css" rel="stylesheet">
+
+    <!-- Site css -->
+    <link href="/styles/style.css" rel="stylesheet">
+
+    <!-- Responsive css -->
+    <link href="/styles/responsive.css" rel="stylesheet">
+
+    <!-- power buttons -->
+    <link href="/styles/outline-buttons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container p-0">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse">
+          <div class="nav navbar-nav logo-container">
+            <a class="navbar-brand" href="<%= url_for root_path %>"><img src="/zaka-white.png" alt="logo"></a>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="text-capitalize">
+              <%= link_to "About Us", about_us_path%>
+            </li>
+            <li>
+              <%= link_to "FAQs", faq_path%>
+            </li>
+            <li>
+              <%= link_to "Opportuities", opportunities_path%>
+            </li>
+            <li>
+              <%= link_to "Contacts", contacts_path%>
+            </li>
+            <li>
+              <a href="regme.html">Lend</a>
+            </li>
+            <li>
+              <a href="borrow.html">Borrow</a>
+            </li>
+
+            <li class="dropdown login-options right pull-right margin-left-sm margin-right-lg">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login
+                <i data-feather="chevron-down" class="margin-left-sm"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="login.html">Entrepreneur Login</a>
+                </li>
+                <li>
+                  <a href="logme.html">Investor Login</a>
+                </li>
+              </ul>
+            </li>
+
+          </ul>
+          <ul class="nav navbar-nav"></ul>
+        </div>
+      </div>
+    </nav>
+    <%= yield %>
+    <section class="footer-top-area section-big">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="footer-top coloum-one">
+              <h3>About
+                <span>Zaka</span></h3>
+              <div class="footer-logo">
+                <img src="images/ddk.png" alt="zaka ligo" class=" margin-bottom-sm margin-top-sm">
+              </div>
+              <p>Zaka International is an SME investment company that aims to bridge short-term financing gap of small and medium sized enterprises in Kenya so that they attain scale to large businesses.</p>
+              <p>Further contributing to wealth generation and employment creation in Kenya and beyond.
+                <br>
+                Nairobi
+              </p>
+              <p>
+                <span>
+                  +254-722-940-878
+                </span>
+              </p>
+              <div class="social-link">
+                <a href="">
+                  <i class="fa fa-facebook"></i>
+                </a>
+                <a href="">
+                  <i class="fa fa-twitter"></i>
+                </a>
+                <a href="">
+                  <i class="fa fa-pinterest-p"></i>
+                </a>
+                <a href="">
+                  <i class="fa fa-google-plus"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="footer-top">
+              <h3>Our links</h3>
+              <ul class="service-list">
+                <li>
+                  <a href="<%= url_for about_us_path %>">
+                    <span>
+                      <i class="fa fa-angle-double-right"></i>
+                    </span>About us</a>
+                </li>
+                <li>
+                  <a href="<%= url_for opportunities_path %>">
+                    <span>
+                      <i class="fa fa-angle-double-right"></i>
+                    </span>Opportunities</a>
+                </li>
+                <li>
+                  <a href="<%= url_for contacts_path %>">
+                    <span>
+                      <i class="fa fa-angle-double-right"></i>
+                    </span>Contacts</a>
+                </li>
+                <li>
+                  <a href="<%= url_for faq_path %>">
+                    <span>
+                      <i class="fa fa-angle-double-right"></i>
+                    </span>FAQs</a>
+                </li>
+                <li>
+                  <a href="<%= url_for terms_and_conditions_path %>">
+                    <span>
+                      <i class="fa fa-angle-double-right"></i>
+                    </span>Privacy policy</a>
+                </li>
+                <li>
+                  <a href="<%= url_for terms_and_conditions_path %>">
+                    <span>
+                      <i class="fa fa-angle-double-right"></i>
+                    </span>Terms & conditions</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="footer-top ">
+              <div class="subcriber-info">
+                <h3>Subscribe</h3>
+                <div class="subcriber-box">
+                  <form id="mc-form" class="mc-form">
+                    <div class="newsletter-form">
+                      <input type="email" autocomplete="off" id="mc-email" placeholder="Email address" class="form-control">
+                      <button class="mc-submit" type="submit">
+                        <i class="fa fa-paper-plane"></i>
+                      </button>
+                      <div class="clearfix"></div>
+                      <!-- mailchimp-alerts Start -->
+                      <div class="mailchimp-alerts">
+                        <div class="mailchimp-submitting"></div>
+                        <!-- mailchimp-submitting end -->
+                        <div class="mailchimp-success"></div>
+                        <!-- mailchimp-success end -->
+                        <div class="mailchimp-error"></div>
+                        <!-- mailchimp-error end -->
+                      </div>
+                      <!-- mailchimp-alerts end -->
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div id="contactgoogleMap"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <p>&copy; Zaka. All rights reserved.
+        <%= Time.current.year %>
+      </p>
+    </footer>
+    <!-- Latest jQuery -->
+    <script src="/scripts/jquery.min.js"></script>
+
+    <!-- Bootstrap js-->
+    <script src="/scripts/bootstrap.min.js"></script>
+
+    <!-- Owl Carousel js -->
+    <script src="/scripts/owl.carousel.min.js"></script>
+
+    <!-- jquery ui js -->
+    <script src="/scripts/jquery-ui.min.js"></script>
+
+    <!-- Mixitup js -->
+    <script src="/scripts/jquery.mixitup.js"></script>
+
+    <!-- Magnific popup js -->
+    <script src="/scripts/jquery.magnific-popup.min.js"></script>
+
+    <!-- Waypoint js -->
+    <script src="/scripts/jquery.waypoints.min.js"></script>
+
+    <!-- jquery.inview js -->
+    <script src="/scripts/jquery.inview.min.js"></script>
+
+    <!-- Ajax Mailchimp js -->
+    <script src="/scripts/jquery.ajaxchimp.min.js"></script>
+
+    <!-- GOOGLE MAP JS -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWGUaG5S3B5VikF8UtVCgjki1Pv_HKGgo"></script>
+
+    <!-- Main js-->
+    <script src="/scripts/main_script.js"></script>
+
+    <!-- feather icon-->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+      feather.replace()
+    </script>
+  </body>

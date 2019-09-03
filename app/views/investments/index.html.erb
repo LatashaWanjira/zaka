@@ -1,0 +1,13 @@
+<%= content_for :title, "Dashboard" %>
+
+<div class="content">
+  <h3>Total Amount Invested:
+    <%= number_to_currency(@invested_amount, :unit => 'KES ') %></h3>
+  <table>
+    <thead>
+      <tr>
+        <td></td>
+      </tr>
+    </thead>
+  </table>
+</div>

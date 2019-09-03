@@ -1,0 +1,46 @@
+<%= content_for :title, "Entrepreneurs" %>
+
+<% if admin_signed_in? %>
+  <div class="content">
+    <button><%= link_to "Add entrepreneur", new_entrepreneur_path %></button>
+    <% if @entrepreneurs.any? %>
+      <% @entrepreneurs.each do |entrepreneur| %>
+        <ul>
+          <li><%= link_to entrepreneur.business_name, entrepreneur_path(entrepreneur) %>
+            by
+            <%= entrepreneur.entrepreneur_name %></li>
+        </ul>
+      <% end %>
+    <% end %>
+  </div>
+<% else %>
+  <div class="content">
+    <h1>Entrepreneurs</h1>
+
+    <% if @entrepreneurs.any? %>
+      <p>List of all entrepreneurs</p>
+      <div class="card-deck">
+        <% @entrepreneurs.each do |entrepreneur| %>
+          <div class="card">
+            <% if entrepreneur.images.any? %>
+              <img src="<%= url_for(entrepreneur.images[0]) %>" alt="">
+            <% else %>
+              <img src="https://krishijagran.com/media/10117/1-agriculture-farming.jpg" alt="Test">
+            <% end %>
+            <div class="entrepreneur-brief">
+              <h3><%= entrepreneur.business_name %></h3>
+              <p><%= entrepreneur.entrepreneur_name %></p>
+              <p><%= number_to_currency(entrepreneur.amount_sought, :unit => 'KES ') %></p>
+              <div class="entrepreneur-links">
+                <%= link_to "Learn More", entrepreneur_path(entrepreneur), class: "link-btn btn-yellow"%>
+                <%= link_to "Invest", new_entrepreneur_investment_path(entrepreneur), :class=>"link-btn btn-purple" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p>None yet</p>
+    <% end %>
+  </div>
+<% end %>

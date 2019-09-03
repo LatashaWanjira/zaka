@@ -1,0 +1,28 @@
+<%= render "layouts/errors", :object => @entrepreneur %>
+
+<%= form_for @entrepreneur do |f| %>
+<%= f.label :business_name %>
+<%= f.text_field :business_name, :autofocus => true %>
+<%= f.label :entrepreneur_name %>
+<%= f.text_field :entrepreneur_name %>
+<%= f.label :business_summary %>
+<%= f.text_field :business_summary %>
+<%= f.label :funding_purpose %>
+<%= f.text_field :funding_purpose %>
+<%= f.label :location %>
+<%= f.text_field :location %>
+<%= f.label :amount_sought %>
+<%= f.number_field :amount_sought %>
+<%= f.label :images %>
+<%= f.file_field :images, multiple: true %>
+<% if @entrepreneur.images.attached? %>
+  <p>
+    <strong>Image:</strong>
+    <br>
+    <% @entrepreneur.images.each do |image| %>
+      <%= image_tag image %>
+    <% end %>
+  </p>
+<% end %>
+<%= f.submit %>
+<% end %>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zaka crowdfunding platform">
+    <meta name="keywords" content="business, responsive, multipurpose, onepage, corporate, clean">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%# Page Title %>
+      <title>Zaka |
+        <%= yield(:title) %></title>
+
+      <!-- Favicon -->
+      <link rel="shortcut icon" href="logo.png">
+
+      <!-- Google Fonts CDN -->
+      <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap" rel="stylesheet">
+
+      <!-- SlickJS CSS CDN -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha256-UK1EiopXIL+KVhfbFa8xrmAWPeBjMVdvYMYkTAEv/HI=" crossorigin="anonymous"/>
+
+      <!-- SlickJS CSS Theme CDN -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" integrity="sha256-4hqlsNP9KM6+2eA8VUT0kk4RsMRTeS7QGHIM+MZ5sLY=" crossorigin="anonymous"/>
+
+      <!-- Custom Stylesheets -->
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+      <!-- JQuery CDN -->
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+      <!-- SlickJS JS CDN -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha256-NXRS8qVcmZ3dOv3LziwznUHPegFhPZ1F/4inU7uC8h0=" crossorigin="anonymous"></script>
+
+      <!-- Custom Javascript -->
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    </head>
+
+    <body>
+      <nav class="navbar">
+        <div class="nav-logo">
+          <img src="zaka-white.png" alt="Zaka">
+        </div>
+        <ul class="nav-links">
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Entrepreneurs", entrepreneurs_path %></li>
+          <% if admin_signed_in? %>
+            <li><%= link_to "Dashboard", investments_path %></li>
+            <li>Logged in as Admin</li>
+            <li><%= link_to 'Logout', destroy_admin_session_path, method: :delete %></li>
+          <% else %>
+            <li>About Us</li>
+            <li>Opportunities</li>
+            <li>Contacts</li>
+            <li>FAQs</li>
+            <% if investor_signed_in? %>
+              <li>Logged in as
+                <%= current_investor.email %></li>
+              <li><%= link_to 'Logout', destroy_investor_session_path, method: :delete %></li>
+            <% else %>
+              <li>
+                <button type="button" name="button"><%= link_to "Invest Now", new_investor_session_path %></button>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+      </nav>
+      <%= yield %>
+      <footer>
+        <p>&copy; Zaka. All rights reserved.
+          <%= Time.current.year %>
+        </p>
+      </footer>
+    </body>
+  </html>
