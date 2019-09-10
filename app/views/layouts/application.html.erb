@@ -41,35 +41,50 @@
     </head>
 
     <body>
-      <nav class="navbar">
-        <div class="nav-logo">
-          <img src="zaka-white.png" alt="Zaka">
-        </div>
-        <ul class="nav-links">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Entrepreneurs", entrepreneurs_path %></li>
-          <% if admin_signed_in? %>
-            <li><%= link_to "Dashboard", investments_path %></li>
-            <li>Logged in as Admin</li>
-            <li><%= link_to 'Logout', destroy_admin_session_path, method: :delete %></li>
-          <% else %>
-            <li>About Us</li>
-            <li>Opportunities</li>
-            <li>Contacts</li>
-            <li>FAQs</li>
-            <% if investor_signed_in? %>
-              <li>Logged in as
-                <%= current_investor.email %></li>
-              <li><%= link_to 'Logout', destroy_investor_session_path, method: :delete %></li>
+      <header>
+        <nav class="navbar">
+          <div class="nav-logo">
+            <img src="zaka-white.png" alt="Zaka">
+          </div>
+          <ul class="nav-links">
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Entrepreneurs", entrepreneurs_path %></li>
+            <% if admin_signed_in? %>
+              <li><%= link_to "Dashboard", investments_path %></li>
+              <li>Logged in as Admin</li>
+              <li><%= link_to 'Logout', destroy_admin_session_path, method: :delete %></li>
             <% else %>
               <li>
-                <button type="button" name="button"><%= link_to "Invest Now", new_investor_session_path %></button>
+                <%= link_to "About Us", about_us_path%>
               </li>
+              <li>
+                <%= link_to "FAQs", faq_path%>
+              </li>
+              <li>
+                <%= link_to "Opportuities", opportunities_path%>
+              </li>
+              <li>
+                <%= link_to "Entrepreneurs", entrepreneurs_path%>
+              </li>
+              <li>
+                <%= link_to "Contacts", contacts_path%>
+              </li>
+              <% if investor_signed_in? %>
+                <li>Logged in as
+                  <%= current_investor.email %></li>
+                <li><%= link_to 'Logout', destroy_investor_session_path, method: :delete %></li>
+              <% else %>
+                <li>
+                  <button type="button" name="button"><%= link_to "Invest Now", new_investor_session_path %></button>
+                </li>
+              <% end %>
             <% end %>
-          <% end %>
-        </ul>
-      </nav>
-      <%= yield %>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <%= yield %>
+      </main>
       <footer>
         <p>&copy; Zaka. All rights reserved.
           <%= Time.current.year %>

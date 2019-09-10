@@ -3,11 +3,20 @@
 <div class="content">
   <h3>Total Amount Invested:
     <%= number_to_currency(@invested_amount, :unit => 'KES ') %></h3>
+  <h4>Breakdown of Investments</h4>
   <table>
     <thead>
       <tr>
         <td></td>
       </tr>
     </thead>
+    <tbody>
+      <% @investments.each do |investment| %>
+        <tr>
+          <td><%= investment.invested_amount %></td>
+          <td><%=link_to investment.entrepreneur.business_name, entrepreneurs_path %></td>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
 </div>

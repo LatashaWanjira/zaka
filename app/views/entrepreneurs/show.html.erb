@@ -3,39 +3,53 @@
 <div class="content">
   <div class="header">
     <div class="entrepreneur-images">
-      <% @entrepreneur.images.each do |image| %>
-        <div>
-          <%= image_tag image %>
-        </div>
-      <% end %>
+      <div>
+        <% if @entrepreneur.images.any? %>
+          <% @entrepreneur.images.each do |image| %>
+            <%= image_tag image %>
+          <% end %>
+        <% else %>
+          <img src="https://krishijagran.com/media/10117/1-agriculture-farming.jpg" alt="Test">
+        <% end %>
+      </div>
     </div>
-    <h1><%= @entrepreneur.business_name %></h1>
-    <p>By:
-      <%= @entrepreneur.entrepreneur_name %></p>
-    <p>Location:
-      <%= @entrepreneur.location %></p>
-    <p><%= number_to_currency(@entrepreneur.amount_sought, :unit => 'KES ') %></p>
+    <div>
+      <h1><%= @entrepreneur.business_name %></h1>
+      <p>By:
+        <%= @entrepreneur.entrepreneur_name %></p>
+      <p>Location:
+        <%= @entrepreneur.location %></p>
+      <p><%= number_to_currency(@entrepreneur.amount_sought, :unit => 'KES ') %></p>
+    </div>
   </div>
 
-  <h3>Business Summary</h3>
-  <p><%= @entrepreneur.business_summary %></p>
-  <h3>Purpose for funding</h3>
-  <%= @entrepreneur.funding_purpose %>
-  <p><%= number_to_currency(@investments, :unit => 'KES ') %>
-    has been invested so far.</p>
-
-  <% if admin_signed_in? %>
-    <button><%= link_to "Edit", edit_entrepreneur_path(@entrepreneur) %></button>
-    <br>
-    <button class="danger"><%= link_to "Delete", entrepreneur_path(@entrepreneur), :data => ({:confirm => "Are you sure?", :method => 'delete'}) %></button>
-  <% else %>
-    <% if @investments < @entrepreneur.amount_sought %>
-      <%= link_to "Invest", new_entrepreneur_investment_path(@entrepreneur), :class=>"link-btn", class: "link-btn btn-yellow" %>
-    <% else %>
-      <p><%= @entrepreneur.business_name %>
-        has reached their target</p>
-    <% end %>
-  <% end %>
+  <div class="summary">
+    <div>
+      <h3>Business Summary</h3>
+      <p><%= @entrepreneur.business_summary %></p>
+      <h3>Purpose for funding</h3>
+      <%= @entrepreneur.funding_purpose %>
+    </div>
+    <div>
+      <p>
+        <strong><%= number_to_currency(@investments, :unit => 'KES ') %></strong>
+        has been invested so far.</p>
+      <% if admin_signed_in? %>
+        <button><%= link_to "Edit", edit_entrepreneur_path(@entrepreneur) %></button>
+        <br>
+        <button class="danger"><%= link_to "Delete", entrepreneur_path(@entrepreneur), :data => ({:confirm => "Are you sure?", :method => 'delete'}) %></button>
+      <% else %>
+        <% if @investments < @entrepreneur.amount_sought %>
+          <%= link_to "Invest", new_entrepreneur_investment_path(@entrepreneur), :class=>"link-btn", class: "link-btn btn-yellow" %>
+        <% else %>
+          <p>
+            <strong><%= @entrepreneur.business_name %>
+              has reached their target</strong>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
 <script>
   $('.entrepreneur-images').slick({arrows: true, infinite: true, slidesToShow: 1});

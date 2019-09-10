@@ -7,10 +7,10 @@
   <%= render "layouts/errors", :object => @investment %>
 
   <%= form_for [@entrepreneur, @investment] do |f| %>
-  <%= f.label :invested_amount %>
-  <%= f.number_field :invested_amount %>
+  <%= f.label :invested_amount, "I would like to invest: (min-value: KSH 100 ) " %>
+  <%= f.number_field :invested_amount, :value => 100 , input_html: { min: '100', step: 'any' } %>
   <%= f.hidden_field :investor_id, :value => current_investor.id %>
-  <%= f.submit %>
+  <%= f.submit "Invest" %>
 <% end %>
 
 </div>
