@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'contacts/new'
   devise_for :admins
   devise_for :investors
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -14,6 +13,7 @@ Rails.application.routes.draw do
   get 'contacts',             to: 'home#contacts'
   get 'terms_and_conditions', to: 'home#terms_and_conditions'
   get 'investments',          to: 'investments#index'
+  resources :contacts, only: %i[new create]
 
   resources :entrepreneurs do
     resources :investments, only: %i[new create]
