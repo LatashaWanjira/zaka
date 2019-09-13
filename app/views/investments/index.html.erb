@@ -19,4 +19,5 @@
       <% end %>
     </tbody>
   </table>
+  <%= line_chart Investment.group_by_day(:created_at, last: 7, current: true).count  %>
 </div>
