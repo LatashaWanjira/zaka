@@ -4,8 +4,9 @@ class InvestmentsController < ApplicationController
   before_action :authenticate_admin!, only: [:index]
   before_action :authenticate_investor!, except: [:index]
   def index
-    @investments = Investment.all
-    @invested_amount = @investments.sum(:invested_amount)
+    @investments = Investment.page(params[:page]).per_page(5)
+    @invested_amount = Investment.all.sum(:invested_amount)
+    @sought_amount = Entrepreneur.all.sum(:amount_sought)
     render :index
   end
 
@@ -33,4 +34,9 @@ class InvestmentsController < ApplicationController
   def investment_params
     params.require(:investment).permit(:entrepreneur_id, :investor_id, :invested_amount)
   end
+
+    def link(text, target, attributes = {})
+      attributes['data-remote'] = true
+      super
+    end
 end

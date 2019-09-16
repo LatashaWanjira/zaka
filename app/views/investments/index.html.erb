@@ -1,23 +1,47 @@
 <%= content_for :title, "Dashboard" %>
-
 <div class="content">
-  <h3>Total Amount Invested:
-    <%= number_to_currency(@invested_amount, :unit => 'KES ') %></h3>
-  <h4>Breakdown of Investments</h4>
-  <table>
-    <thead>
-      <tr>
-        <td></td>
-      </tr>
-    </thead>
-    <tbody>
-      <% @investments.each do |investment| %>
-        <tr>
-          <td><%= investment.invested_amount %></td>
-          <td><%=link_to investment.entrepreneur.business_name, entrepreneurs_path %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <%= line_chart Investment.group_by_day(:created_at, last: 7, current: true).count  %>
+    <h3>Total Amount Invested:
+        <%= number_to_currency(@invested_amount, :unit => 'KES ') %>
+    </h3>
+    <%= line_chart Investment.group_by_day(:created_at, last: 7, current: true).sum('investments.invested_amount')  %>
+    <%= pie_chart [["Sought Amount", @sought_amount], ["Invested Amount", @invested_amount]]  %>
+
+    <h4>Breakdown of Investments</h4>
+    <table>
+        <thead>
+            <tr>
+                <td>Business</td>
+                <td>Amount Sought (KES)</td>
+                <td>Amount Invested (KES)</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% @investments.each do |investment| %>
+            <tr>
+                <td>
+                    <%=link_to investment.entrepreneur.business_name, entrepreneurs_path %>
+                </td>
+                <td>
+                    <%= number_to_currency(investment.entrepreneur.amount_sought, :unit => 'KES ') %>
+                </td>
+                <td>
+                    <%= number_to_currency(investment.invested_amount, :unit => 'KES ') %>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2"><strong>Total</strong></td>
+                <td>
+                    <%= number_to_currency(@invested_amount, :unit => 'KES ') %>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+<br>
+<br>
+<br>
+    <%= will_paginate @investments %>
+
 </div>
