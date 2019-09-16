@@ -14,158 +14,155 @@
  *= require_self
  */
 :root {
-  --primary: #4d1166;
-  --secondary: #ffc50c;
+    --primary: #4d1166;
+    --secondary: #ffc50c;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  padding: 0;
-  margin: 0;
-  overflow-x: hidden;
-  min-height: 88.5vh;
-  position: relative;
-  background: rgba(77, 17, 102, 0.29);
-  font-family: 'Montserrat', sans-serif;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    min-height: 88.5vh;
+    position: relative;
+    background: rgba(77, 17, 102, 0.29);
+    font-family: 'Montserrat', sans-serif;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 nav.navbar {
-  background: var(--primary);
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5em 10%;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  z-index: 10;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 10%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 10;
 }
 
 .nav-logo img {
-  height: 50px;
+    height: 50px;
 }
 
 ul.nav-links {
-  display: flex;
-  list-style: none;
-  position: relative;
+    display: flex;
+    list-style: none;
+    position: relative;
 }
 
 .nav-links li {
-  padding: 0 0.5em;
+    padding: 0 0.5em;
 }
 
 .nav-links li a {
-  transition: 0.5s;
+    transition: 0.5s;
 }
 
 .nav-links li a:hover {
-  color: var(--secondary);
-}
-
-main {
-  min-height:
+    color: var(--secondary);
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: var(--secondary);
-  text-align: center;
-  padding: 0.5em;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: var(--secondary);
+    text-align: center;
+    padding: 0.5em;
 }
 
 footer p {
-  margin: 0;
+    margin: 0;
 }
 
 .content {
-  padding: 2em;
-  margin: 7em 10% 2em;
-  display: flex;
-  flex-direction: column;
-  background: white;
+    padding: 2em;
+    margin: 7em 10% 2em;
+    display: flex;
+    flex-direction: column;
+    background: white;
 }
 
 .content-center {
-  align-items: center;
+    align-items: center;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  padding: 2em;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 2em;
 }
 
 input {
-  border: 0;
-  border-bottom: 1px solid black;
-  margin: 1em 0;
-  padding: 0.5em;
-  font-size: 1em;
-  width: 100%;
+    border: 0;
+    border-bottom: 1px solid black;
+    margin: 1em 0;
+    padding: 0.5em;
+    font-size: 1em;
+    width: 100%;
 }
 
 input:focus {
-  outline: none;
-  border-bottom: 2px solid black;
+    outline: none;
+    border-bottom: 2px solid black;
 }
 
-input[type="submit"], button {
-  background: var(--secondary);
-  border: 1px solid black;
-  width: auto;
-  padding: 0.5em 2em;
-  align-self: flex-end;
+input[type="submit"],
+button {
+    background: var(--secondary);
+    border: 1px solid black;
+    width: auto;
+    padding: 0.5em 2em;
+    align-self: flex-end;
 }
 
 button.danger {
-  background: red;
+    background: red;
 }
 
 .link-btn {
-  width: auto;
-  padding: 0.5em 1em;
-  transition: 0.5s;
+    width: auto;
+    padding: 0.5em 1em;
+    transition: 0.5s;
 }
 
 .link-btn:hover {
-  background: none;
+    background: none;
 }
 
 .btn-yellow {
-  background: var(--secondary);
-  border: 1px solid var(--secondary);
-  color: var(--primary);
+    background: var(--secondary);
+    border: 1px solid var(--secondary);
+    color: var(--primary);
 }
 
 .btn-purple {
-  background: var(--primary);
-  border: 1px solid var(--primary);
-  color: var(--secondary);
+    background: var(--primary);
+    border: 1px solid var(--primary);
+    color: var(--secondary);
 }
 
 .btn-yellow:hover {
-  color: var(--secondary);
+    color: var(--secondary);
 }
 
 .btn-purple:hover {
-  color: var(--primary);
+    color: var(--primary);
 }
 
 .link-btn:focus {
-  background: #42294c;
-  border-color: var(--primary);
-  color: var(--secondary);
+    background: #42294c;
+    border-color: var(--primary);
+    color: var(--secondary);
 }
